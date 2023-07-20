@@ -30,7 +30,7 @@ use elliptic_curve::{
 };
 
 /// Point on a Weierstrass curve in projective coordinates.
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct ProjectivePoint<C: PrimeCurveParams> {
     pub(crate) x: C::FieldElement,
     pub(crate) y: C::FieldElement,
