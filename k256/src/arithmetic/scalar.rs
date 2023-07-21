@@ -24,7 +24,7 @@ use elliptic_curve::{
     zeroize::DefaultIsZeroes,
     Curve, ScalarPrimitive,
 };
-
+use serde::{Deserialize, Serialize}; 
 #[cfg(feature = "bits")]
 use {crate::ScalarBits, elliptic_curve::group::ff::PrimeFieldBits};
 
@@ -72,7 +72,7 @@ const FRAC_MODULUS_2: U256 = ORDER.shr_vartime(1);
 ///
 /// The serialization is a fixed-width big endian encoding. When used with
 /// textual formats, the binary data is encoded as hexadecimal.
-#[derive(Clone, Copy, Debug, Default, PartialOrd, Ord)]
+#[derive(Clone, Copy, Debug, Default, PartialOrd, Ord,Serialize,Deserialize)]
 pub struct Scalar(pub(crate) U256);
 
 impl Scalar {
